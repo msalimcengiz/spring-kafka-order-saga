@@ -1,5 +1,7 @@
 # spring-kafka-order-saga
 
+[![ci](https://github.com/msalimcengiz/spring-kafka-order-saga/actions/workflows/ci.yml/badge.svg)](https://github.com/msalimcengiz/spring-kafka-order-saga/actions/workflows/ci.yml)
+
 An order checkout split across three **Spring Boot 4 / Java 25** services that coordinate over **Kafka**. No distributed transactions are involved. Each service owns its database, and consistency comes from:
 
 - a saga with compensation
@@ -8,6 +10,8 @@ An order checkout split across three **Spring Boot 4 / Java 25** services that c
 - dead-letter topics that can be replayed
 
 The guarantees are checked by tests against real Kafka and Postgres, and by a chaos run that kills services and the broker.
+
+![`make demo` on a fresh machine: every step is checked and prints ✓ or stops with ✗](docs/demo.svg)
 
 ## Try it in 3 minutes
 

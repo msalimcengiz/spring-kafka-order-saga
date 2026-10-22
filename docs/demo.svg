@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="908" viewBox="0 0 960 908" role="img" aria-label="spring-kafka-order-saga · make demo">
+<title>spring-kafka-order-saga · make demo</title>
+<style>text{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#d6deeb;white-space:pre}.b{font-weight:700;fill:#ffffff}.d{fill:#8b949e}.g{fill:#3fb950}.r{fill:#f85149}.p{fill:#79c0ff}.l{opacity:0;animation-duration:18.21s;animation-iteration-count:infinite;animation-timing-function:step-end}@keyframes k0{0%{opacity:0}2.197%{opacity:1}99.5%{opacity:0}}@keyframes k1{0%{opacity:0}2.197%{opacity:1}99.5%{opacity:0}}@keyframes k2{0%{opacity:0}7.688%{opacity:1}99.5%{opacity:0}}@keyframes k3{0%{opacity:0}8.347%{opacity:1}99.5%{opacity:0}}@keyframes k4{0%{opacity:0}9.006%{opacity:1}99.5%{opacity:0}}@keyframes k5{0%{opacity:0}9.665%{opacity:1}99.5%{opacity:0}}@keyframes k6{0%{opacity:0}15.157%{opacity:1}99.5%{opacity:0}}@keyframes k7{0%{opacity:0}15.815%{opacity:1}99.5%{opacity:0}}@keyframes k8{0%{opacity:0}16.474%{opacity:1}99.5%{opacity:0}}@keyframes k9{0%{opacity:0}17.133%{opacity:1}99.5%{opacity:0}}@keyframes k10{0%{opacity:0}17.792%{opacity:1}99.5%{opacity:0}}@keyframes k11{0%{opacity:0}19.495%{opacity:1}99.5%{opacity:0}}@keyframes k12{0%{opacity:0}20.154%{opacity:1}99.5%{opacity:0}}@keyframes k13{0%{opacity:0}20.813%{opacity:1}99.5%{opacity:0}}@keyframes k14{0%{opacity:0}22.515%{opacity:1}99.5%{opacity:0}}@keyframes k15{0%{opacity:0}23.174%{opacity:1}99.5%{opacity:0}}@keyframes k16{0%{opacity:0}23.833%{opacity:1}99.5%{opacity:0}}@keyframes k17{0%{opacity:0}24.492%{opacity:1}99.5%{opacity:0}}@keyframes k18{0%{opacity:0}29.709%{opacity:1}99.5%{opacity:0}}@keyframes k19{0%{opacity:0}30.368%{opacity:1}99.5%{opacity:0}}@keyframes k20{0%{opacity:0}31.027%{opacity:1}99.5%{opacity:0}}@keyframes k21{0%{opacity:0}31.686%{opacity:1}99.5%{opacity:0}}@keyframes k22{0%{opacity:0}32.345%{opacity:1}99.5%{opacity:0}}@keyframes k23{0%{opacity:0}33.004%{opacity:1}99.5%{opacity:0}}@keyframes k24{0%{opacity:0}33.663%{opacity:1}99.5%{opacity:0}}@keyframes k25{0%{opacity:0}34.322%{opacity:1}99.5%{opacity:0}}@keyframes k26{0%{opacity:0}39.813%{opacity:1}99.5%{opacity:0}}@keyframes k27{0%{opacity:0}40.472%{opacity:1}99.5%{opacity:0}}@keyframes k28{0%{opacity:0}41.131%{opacity:1}99.5%{opacity:0}}@keyframes k29{0%{opacity:0}41.790%{opacity:1}99.5%{opacity:0}}@keyframes k30{0%{opacity:0}47.282%{opacity:1}99.5%{opacity:0}}@keyframes k31{0%{opacity:0}47.941%{opacity:1}99.5%{opacity:0}}@keyframes k32{0%{opacity:0}53.432%{opacity:1}99.5%{opacity:0}}@keyframes k33{0%{opacity:0}54.091%{opacity:1}99.5%{opacity:0}}@keyframes k34{0%{opacity:0}54.750%{opacity:1}99.5%{opacity:0}}@keyframes k35{0%{opacity:0}60.242%{opacity:1}99.5%{opacity:0}}@keyframes k36{0%{opacity:0}62.054%{opacity:1}99.5%{opacity:0}}@keyframes k37{0%{opacity:0}62.713%{opacity:1}99.5%{opacity:0}}@keyframes k38{0%{opacity:0}64.525%{opacity:1}99.5%{opacity:0}}@keyframes k39{0%{opacity:0}65.184%{opacity:1}99.5%{opacity:0}}@keyframes k40{0%{opacity:0}65.843%{opacity:1}99.5%{opacity:0}}@keyframes k41{0%{opacity:0}66.502%{opacity:1}99.5%{opacity:0}}@keyframes k42{0%{opacity:0}67.161%{opacity:1}99.5%{opacity:0}}@keyframes k43{0%{opacity:0}67.820%{opacity:1}99.5%{opacity:0}}@keyframes k44{0%{opacity:0}68.479%{opacity:1}99.5%{opacity:0}}@keyframes k45{0%{opacity:0}69.138%{opacity:1}99.5%{opacity:0}}@keyframes k46{0%{opacity:0}69.797%{opacity:1}99.5%{opacity:0}}</style>
+<rect width="960" height="908" rx="8" fill="#0d1117"/>
+<rect width="960" height="30" rx="8" fill="#161b22"/><rect y="22" width="960" height="8" fill="#161b22"/>
+<circle cx="18" cy="15" r="6" fill="#ff5f57"/><circle cx="38" cy="15" r="6" fill="#febc2e"/><circle cx="58" cy="15" r="6" fill="#28c840"/>
+<text x="480.0" y="20" text-anchor="middle" style="fill:#8b949e;font-size:12px">spring-kafka-order-saga · make demo</text>
+<text class="l" style="animation-name:k0" x="16" y="60"><tspan class="p">$</tspan> make demo</text>
+<text class="l" style="animation-name:k1" x="16" y="78">Building and starting order, payment ×2, inventory ×2, Kafka and Postgres (fresh data)…</text>
+<text class="l" style="animation-name:k2" x="16" y="96"></text>
+<text class="l" style="animation-name:k3" x="16" y="114"><tspan class="b">1. Happy path: order → charge payment → reserve stock → COMPLETED, all over Kafka</tspan></text>
+<text class="l" style="animation-name:k4" x="16" y="132">   <tspan class="d">→ 202 {&quot;id&quot;: &quot;0df266fe-a20a-43ad-b939-16fd646cddd6&quot;, &quot;customerId&quot;: &quot;c001&quot;, &quot;productId&quot;: &quot;p001&quot;, &quot;quantity&quot;: 2, &quot;am…</tspan></text>
+<text class="l" style="animation-name:k5" x="16" y="150">   <tspan class="g">✓</tspan> 202: order stored with its first command in the outbox</text>
+<text class="l" style="animation-name:k6" x="16" y="168">   <tspan class="g">✓</tspan> saga completed</text>
+<text class="l" style="animation-name:k7" x="16" y="186">   <tspan class="g">✓</tspan> c001 balance 5000.0 → 4850.1, p001 stock 100 → 98</text>
+<text class="l" style="animation-name:k8" x="16" y="204"></text>
+<text class="l" style="animation-name:k9" x="16" y="222"><tspan class="b">2. A client retry with the same Idempotency-Key returns the same order, nothing is charged twice</tspan></text>
+<text class="l" style="animation-name:k10" x="16" y="240">   <tspan class="g">✓</tspan> 200 with the original order</text>
+<text class="l" style="animation-name:k11" x="16" y="258">   <tspan class="g">✓</tspan> c002 charged exactly once (5000.00 → 4950.00)</text>
+<text class="l" style="animation-name:k12" x="16" y="276"></text>
+<text class="l" style="animation-name:k13" x="16" y="294"><tspan class="b">3. Not enough money: payment is declined and the order is cancelled; no compensation is needed</tspan></text>
+<text class="l" style="animation-name:k14" x="16" y="312">   <tspan class="d">status CANCELLED, reason: payment_declined: insufficient_funds</tspan></text>
+<text class="l" style="animation-name:k15" x="16" y="330">   <tspan class="g">✓</tspan> cancelled, balance untouched</text>
+<text class="l" style="animation-name:k16" x="16" y="348"></text>
+<text class="l" style="animation-name:k17" x="16" y="366"><tspan class="b">4. Out of stock after payment: the saga compensates by refunding, then cancels</tspan></text>
+<text class="l" style="animation-name:k18" x="16" y="384">   <tspan class="d">states seen: PAYMENT_PENDING → STOCK_PENDING → REFUND_PENDING → CANCELLED</tspan></text>
+<text class="l" style="animation-name:k19" x="16" y="402">   <tspan class="d">reason: out_of_stock: insufficient_stock</tspan></text>
+<text class="l" style="animation-name:k20" x="16" y="420">   <tspan class="g">✓</tspan> payment charged and then REFUNDED</text>
+<text class="l" style="animation-name:k21" x="16" y="438">   <tspan class="g">✓</tspan> c005 balance back to 5000.0, stock still 0 (never negative)</text>
+<text class="l" style="animation-name:k22" x="16" y="456"></text>
+<text class="l" style="animation-name:k23" x="16" y="474"><tspan class="b">5. Invalid requests are rejected before anything is stored</tspan></text>
+<text class="l" style="animation-name:k24" x="16" y="492">   <tspan class="g">✓</tspan> 400 without an Idempotency-Key</text>
+<text class="l" style="animation-name:k25" x="16" y="510">   <tspan class="g">✓</tspan> 400 for quantity 0 and a negative amount</text>
+<text class="l" style="animation-name:k26" x="16" y="528"></text>
+<text class="l" style="animation-name:k27" x="16" y="546"><tspan class="b">6. payment-service is down: orders are still accepted, the command waits in Kafka</tspan></text>
+<text class="l" style="animation-name:k28" x="16" y="564">   <tspan class="g">✓</tspan> 202 Accepted</text>
+<text class="l" style="animation-name:k29" x="16" y="582">   <tspan class="g">✓</tspan> order waits in PAYMENT_PENDING</text>
+<text class="l" style="animation-name:k30" x="16" y="600"></text>
+<text class="l" style="animation-name:k31" x="16" y="618"><tspan class="b">7. payment-service is back: it consumes the waiting command and the saga finishes</tspan></text>
+<text class="l" style="animation-name:k32" x="16" y="636">   <tspan class="g">✓</tspan> completed without any client retry</text>
+<text class="l" style="animation-name:k33" x="16" y="654"></text>
+<text class="l" style="animation-name:k34" x="16" y="672"><tspan class="b">8. A record that cannot be parsed goes straight to the dead-letter topic, without retries</tspan></text>
+<text class="l" style="animation-name:k35" x="16" y="690">   <tspan class="g">✓</tspan> payments.commands.DLT has 1 record(s)</text>
+<text class="l" style="animation-name:k36" x="16" y="708"></text>
+<text class="l" style="animation-name:k37" x="16" y="726"><tspan class="b">9. Consumers keep working after the poison record (the same-partition case is covered by PaymentServiceIT)</tspan></text>
+<text class="l" style="animation-name:k38" x="16" y="744">   <tspan class="g">✓</tspan> a new order completes; nothing is stuck</text>
+<text class="l" style="animation-name:k39" x="16" y="762">   <tspan class="d">saga_transitions_total{application=&quot;order-service&quot;,to=&quot;CANCELLED&quot;} 2.0</tspan></text>
+<text class="l" style="animation-name:k40" x="16" y="780">   <tspan class="d">saga_transitions_total{application=&quot;order-service&quot;,to=&quot;COMPLETED&quot;} 5.0</tspan></text>
+<text class="l" style="animation-name:k41" x="16" y="798">   <tspan class="d">saga_transitions_total{application=&quot;order-service&quot;,to=&quot;REFUND_PENDING&quot;} 1.0</tspan></text>
+<text class="l" style="animation-name:k42" x="16" y="816">   <tspan class="d">saga_transitions_total{application=&quot;order-service&quot;,to=&quot;STOCK_PENDING&quot;} 6.0</tspan></text>
+<text class="l" style="animation-name:k43" x="16" y="834"></text>
+<text class="l" style="animation-name:k44" x="16" y="852"><tspan class="b g">Demo finished: happy path, idempotency, decline, compensation (refund), validation, a participant outage and a poison…</tspan></text>
+<text class="l" style="animation-name:k45" x="16" y="870"></text>
+<text class="l" style="animation-name:k46" x="16" y="888">Explore: requests.http · orders http://localhost:8081 · payments :8082 · inventory :8084 · stop → make down</text>
+</svg>
