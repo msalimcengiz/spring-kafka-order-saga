@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order-service
+  config:
+    import: classpath:saga-common.yml
+server:
+  port: ${PORT:8081}
+  shutdown: graceful
+saga:
+  stuck-after: ${SAGA_STUCK_AFTER:PT2M}
+  sweep-interval-ms: ${SAGA_SWEEP_INTERVAL_MS:30000}

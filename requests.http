@@ -1,0 +1,41 @@
+# Example requests for the VS Code "REST Client" extension or JetBrains HTTP Client.
+# Start first: make up (fresh data: 100 customers c001..c100 with 5,000.00; 20 products p001..p020 with 100 units)
+@orders = http://localhost:8081
+@payments = http://localhost:8082
+@inventory = http://localhost:8084
+
+### Place an order (202). Repeat with the same Idempotency-Key → 200 with the same order
+POST {{orders}}/orders
+Content-Type: application/json
+Idempotency-Key: checkout-42
+
+{"customerId": "c001", "productId": "p001", "quantity": 2, "amount": "149.90"}
+
+### Follow the saga: PAYMENT_PENDING → STOCK_PENDING → COMPLETED (replace the id)
+GET {{orders}}/orders/REPLACE-WITH-ORDER-ID
+
+### Balance and stock after it
+GET {{payments}}/accounts/c001
+
+###
+GET {{inventory}}/products/p001
+
+### Declined: more than the customer has
+POST {{orders}}/orders
+Content-Type: application/json
+Idempotency-Key: checkout-43
+
+{"customerId": "c002", "productId": "p002", "quantity": 1, "amount": "6000.00"}
+
+### Payment record of an order (CHARGED / DECLINED / REFUNDED)
+GET {{payments}}/payments/REPLACE-WITH-ORDER-ID
+
+### Replay dead-lettered commands (admin)
+POST {{payments}}/admin/dlt/replay?topic=payments.commands&max=100
+X-Admin-Token: dev-admin-token
+
+### Health and metrics
+GET {{orders}}/actuator/health
+
+###
+GET {{orders}}/actuator/prometheus

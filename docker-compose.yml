@@ -1,0 +1,87 @@
+name: saga
+
+x-service: &service
+  restart: unless-stopped
+  depends_on:
+    postgres: { condition: service_healthy }
+    kafka: { condition: service_healthy }
+  healthcheck:
+    test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health/readiness"]
+    interval: 3s
+    retries: 40
+
+x-env: &env
+  KAFKA_BOOTSTRAP: kafka:9092
+  DATABASE_USER: saga
+  DATABASE_PASSWORD: saga
+  PORT: "8080"
+  ADMIN_TOKEN: ${ADMIN_TOKEN:-dev-admin-token}
+  FAULT_RATE: ${FAULT_RATE:-0}
+
+services:
+  order-service:
+    <<: *service
+    build: { context: ., args: { SERVICE: order-service } }
+    image: saga/order-service
+    environment:
+      <<: *env
+      DATABASE_URL: jdbc:postgresql://postgres:5432/orders
+      SAGA_STUCK_AFTER: ${SAGA_STUCK_AFTER:-PT2M}
+    ports: ["8081:8080"]
+
+  payment-service:
+    <<: *service
+    build: { context: ., args: { SERVICE: payment-service } }
+    image: saga/payment-service
+    environment:
+      <<: *env
+      DATABASE_URL: jdbc:postgresql://postgres:5432/payments
+    ports: ["8082-8083:8080"]
+    deploy: { replicas: 2 }
+
+  inventory-service:
+    <<: *service
+    build: { context: ., args: { SERVICE: inventory-service } }
+    image: saga/inventory-service
+    environment:
+      <<: *env
+      DATABASE_URL: jdbc:postgresql://postgres:5432/inventory
+    ports: ["8084-8085:8080"]
+    deploy: { replicas: 2 }
+
+  kafka:
+    image: apache/kafka:4.2.0
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+    ports: ["29092:29092"]
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 5s
+      retries: 30
+
+  postgres:
+    image: postgres:17-alpine
+    environment: { POSTGRES_USER: saga, POSTGRES_PASSWORD: saga }
+    volumes: ["./docker/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro"]
+    command: ["postgres", "-c", "max_connections=300"]
+    ports: ["5436:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U saga"]
+      interval: 2s
+      retries: 30
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    profiles: ["observability"]
+    volumes: ["./deploy/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9092:9090"]

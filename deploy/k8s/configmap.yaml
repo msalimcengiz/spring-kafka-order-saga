@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: saga
+data:
+  KAFKA_BOOTSTRAP: kafka-bootstrap.kafka:9092
+  # Production Kafka: 3 replicas, writes need 2 in sync, so one broker can fail without loss.
+  KAFKA_REPLICATION: "3"
+  KAFKA_MIN_INSYNC: "2"
+  PORT: "8080"
+# DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD and ADMIN_TOKEN come from one Secret per service.

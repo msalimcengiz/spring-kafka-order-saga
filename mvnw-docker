@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Runs Maven in a container, so only Docker is needed. Testcontainers inside it starts
+# Kafka and Postgres as sibling containers through the Docker socket; this script makes
+# their mapped ports reachable from the build container on each kind of Docker setup.
+# With Java 25 and Maven installed you can simply run `mvn verify` instead.
+set -euo pipefail
+cd "$(dirname "$0")"
+
+net=(--network host -e TESTCONTAINERS_HOST_OVERRIDE=localhost)
+if docker info --format '{{.OperatingSystem}}' 2>/dev/null | grep -q "Docker Desktop"; then
+  # Docker Desktop: host networking is off by default; reach the ports through the host.
+  net=(--add-host host.docker.internal:host-gateway -e TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal)
+fi
+
+exec docker run --rm "${net[@]}" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v "$PWD":/src -v m2cache:/root/.m2 -w /src \
+  maven:3.9-eclipse-temurin-25 mvn -B "$@"

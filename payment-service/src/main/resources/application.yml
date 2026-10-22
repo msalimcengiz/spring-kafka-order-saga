@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: payment-service
+  config:
+    import: classpath:saga-common.yml
+server:
+  port: ${PORT:8082}
+  shutdown: graceful
+saga:
+  fault-injection:
+    rate: ${FAULT_RATE:0}
